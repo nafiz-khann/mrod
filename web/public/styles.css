@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+button, input {
+  padding: 10px;
+  margin: 5px;
+}
+button {
+  background-color: #7289da;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #677bc4;
+}
+@media (max-width: 600px) {
+  input, button {
+    width: 100%;
+  }
+}
