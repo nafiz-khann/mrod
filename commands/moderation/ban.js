@@ -18,13 +18,8 @@ module.exports = {
       const reason = interaction.options.getString('reason') || 'No reason provided';
       const member = await interaction.guild.members.fetch(user.id).catch(() => null);
 
-      if (!member) {
-        return interaction.editReply('User not found in the server.');
-      }
-
-      if (!member.bannable) {
-        return interaction.editReply('I cannot ban this user.');
-      }
+      if (!member) return interaction.editReply('User not found in the server.');
+      if (!member.bannable) return interaction.editReply('I cannot ban this user.');
 
       await member.ban({ reason });
       await Warning.create({
@@ -72,13 +67,8 @@ module.exports = {
       const reason = args.slice(1).join(' ') || 'No reason provided';
       const member = await message.guild.members.fetch(userId).catch(() => null);
 
-      if (!member) {
-        return message.reply('User not found in the server.');
-      }
-
-      if (!member.bannable) {
-        return message.reply('I cannot ban this user.');
-      }
+      if (!member) return message.reply('User not found in the server.');
+      if (!member.bannable) return message.reply('I cannot ban this user.');
 
       await member.ban({ reason });
       await Warning.create({
